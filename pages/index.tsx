@@ -13,7 +13,7 @@ const Home = (): JSX.Element => {
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
+            This amazing Medium Tutorial
           </a>
         </h1>
 
