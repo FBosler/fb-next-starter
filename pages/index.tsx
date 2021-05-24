@@ -12,7 +12,10 @@ const Home = (): JSX.Element => {
       <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
+          <a
+            className="text-blue-600"
+            href="https://medium.com/p/faab9a274ae7/edit"
+          >
             This amazing Medium Tutorial
           </a>
         </h1>
