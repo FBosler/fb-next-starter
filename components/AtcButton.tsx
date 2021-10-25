@@ -13,14 +13,14 @@ const AtcButton: FC<Props> = ({ addToCart, price, style = 'fixed' }) => {
   return (
     <div
       className={cn(
-        'bottom-0 left-0 z-40 w-full p-3 mt-6 bg-yellow sm:relative sm:p-0 sm: rounded-t-xl',
+        'bottom-0 left-0 z-40 w-full p-3 mt-6 bg-white sm:relative sm:p-0 sm: rounded-t-xl',
         { fixed: style === 'fixed' }
       )}
     >
       <a
         aria-label="Add to Cart"
         type="button"
-        className="flex justify-between w-full"
+        className="flex justify-between w-full p-4 cursor-pointer bg-yellow"
         onClick={addToCart}
       >
         <div>add_to_cart</div>

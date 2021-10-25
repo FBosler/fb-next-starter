@@ -3,9 +3,9 @@
     "title": "Colorwaschmittel",
     "product_id": "6647804166333",
     "variant_ids": {
-      "default": "38159873638593",
-      "normal": "38159873638593",
-      "soft": "38159873638593"
+      "hard": "3815987363859311",
+      "normal": "3815987363859322",
+      "soft": "3815987363859333"
     },
     "price": 20,
     "default_interval": 24,
@@ -15,11 +15,11 @@
   },
   {
     "title": "Vollwaschmittel",
-    "product_id": "6647804166333",
+    "product_id": "66478041663776",
     "variant_ids": {
-      "default": "38149782175937",
-      "normal": "38149782175937",
-      "soft": "38149782175937"
+      "hard": "38149782175911",
+      "normal": "381497821759322",
+      "soft": "38149782175933"
     },
     "price": 99.85,
     "default_interval": 24,
@@ -29,9 +29,9 @@
   },
   {
     "title": "Spülmittel",
-    "product_id": "6647804166333",
+    "product_id": "66478041663156",
     "variant_ids": {
-      "default": "38149782175937"
+      "hard": "38149782175911"
     },
     "price": 99.85,
     "default_interval": 24,

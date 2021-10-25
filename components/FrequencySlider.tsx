@@ -2,7 +2,7 @@ import { useState, FC, SetStateAction, Dispatch } from 'react'
 //TODO: Revisit Repo Issue https://github.com/react-component/slider/issues/780
 //Slider lib has a preventDefault bug on mobile known Bug with React 17
 import Slider from 'rc-slider'
-import type { Bundle } from 'types/types'
+import type { Cart } from 'types/types'
 import 'rc-slider/assets/index.css'
 
 const frequencyToSlider = (
@@ -24,8 +24,8 @@ type Props = {
   calculation_factor: number
   default_interval: number
   product_id: string
-  setBundle: Dispatch<SetStateAction<Bundle>>
-  bundle: Bundle
+  setCart: Dispatch<SetStateAction<Cart>>
+  cart: Cart
 }
 
 const FrequencyChooser: FC<Props> = ({
@@ -33,8 +33,8 @@ const FrequencyChooser: FC<Props> = ({
   calculation_factor,
   default_interval,
   product_id,
-  setBundle,
-  bundle,
+  setCart,
+  cart,
 }) => {
   const sliderMax = 20
 
@@ -49,13 +49,13 @@ const FrequencyChooser: FC<Props> = ({
 
   const sliderChangeHandler = (value: number): void => {
     setSliderValue(value)
-    const changedIdx = bundle.findIndex((el) => el.product_id === product_id)
-    const updatedBundle = [...bundle]
-    updatedBundle[changedIdx].order_interval_frequency = sliderToFrequency(
+    const changedIdx = cart.findIndex((el) => el.product_id === product_id)
+    const updatedCart = [...cart]
+    updatedCart[changedIdx].order_interval_frequency = sliderToFrequency(
       value,
       calculation_factor
     )
-    setBundle(updatedBundle)
+    setCart(updatedCart)
   }
 
   return (
@@ -69,7 +69,7 @@ const FrequencyChooser: FC<Props> = ({
         <div className="w-20 py-2 mr-4 font-semibold text-center bg-white rounded-full">
           {sliderValue} x
         </div>
-        <div className="w-full">
+        <div className="w-40">
           <Slider
             onChange={(value) => {
               sliderChangeHandler(value)

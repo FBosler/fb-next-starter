@@ -1,4 +1,4 @@
-type BundleComponent = {
+type CartComponent = {
   title: string
   product_id: string
   variant_id: string
@@ -11,4 +11,4 @@ type BundleComponent = {
   taxable: boolean
 }
 
-export type Bundle = BundleComponent[]
+export type Cart = CartComponent[]

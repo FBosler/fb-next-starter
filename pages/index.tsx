@@ -1,16 +1,17 @@
 import Head from 'next/head'
 import AtcButton from 'components/AtcButton'
 import FrequencySlider from 'components/FrequencySlider'
-import productBundle from 'data/productBundle.json'
+import VariantSelector from 'components/VariantSelector'
+import products from 'data/products.json'
 import handler from 'api/checkout'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { useState } from 'react'
 
-const cart = productBundle.map((item) => {
+const productBundle = products.map((item) => {
   return {
     title: item.title,
     product_id: item.product_id,
-    variant_id: item.variant_ids.default,
+    variant_id: item.variant_ids.hard,
     quantity: item.quantity,
     charge_interval_frequency: item.default_interval,
     order_interval_frequency: item.default_interval,
@@ -34,8 +35,7 @@ const Home = (): JSX.Element => {
     }
   }
 
-  const [bundle, setBundle] = useState(cart)
-  console.log(bundle)
+  const [cart, setCart] = useState(productBundle)
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -46,23 +46,26 @@ const Home = (): JSX.Element => {
 
       <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
         <h1>current cart</h1>
-        {cart.map((item) => (
+        {productBundle.map((item) => (
           <p key={item.product_id}>
-            {item.title} | {item.order_interval_frequency}
+            {item.title} | Interval: {item.order_interval_frequency} | variant
+            id: {item.variant_id}
           </p>
         ))}
         <AtcButton price="110" addToCart={addToCart} />
-        {productBundle.map((item) => (
+        {products.map((item) => (
           <FrequencySlider
             key={item.product_id}
             title={item.title}
             calculation_factor={item.calculation_factor}
             default_interval={item.default_interval}
             product_id={item.product_id}
-            setBundle={setBundle}
-            bundle={bundle}
+            setCart={setCart}
+            cart={cart}
           />
         ))}
+
+        <VariantSelector products={products} setCart={setCart} cart={cart} />
       </main>
     </div>
   )
