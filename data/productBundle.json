@@ -4,14 +4,18 @@
     "product_id": "6647804166333",
     "variant_id": "38159873638593",
     "price": 20,
-    "default_interval": 24
+    "default_interval": 24,
+    "product_type": "laundry_detergent",
+    "calculation_factor": 40
   },
   {
-    "title": "Vollwaschm;ittel",
+    "title": "Vollwaschmittel",
     "product_id": "6647804166333",
     "variant_id": "38149782175937",
     "name": "Vollwaschmittel",
     "price": 99.85,
-    "default_interval": 24
+    "default_interval": 24,
+    "product_type": "laundry_detergent",
+    "calculation_factor": 40
   }
 ]
