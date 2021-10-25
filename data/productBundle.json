@@ -3,13 +3,15 @@
     "title": "Colorwaschmittel",
     "product_id": "6647804166333",
     "variant_id": "38159873638593",
-    "price": 20
+    "price": 20,
+    "default_interval": 24
   },
   {
     "title": "Vollwaschm;ittel",
     "product_id": "6647804166333",
     "variant_id": "38149782175937",
     "name": "Vollwaschmittel",
-    "price": 99.85
+    "price": 99.85,
+    "default_interval": 24
   }
 ]

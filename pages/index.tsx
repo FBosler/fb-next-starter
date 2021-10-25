@@ -3,6 +3,7 @@ import AtcButton from 'components/AtcButton'
 import productBundle from 'data/productBundle.json'
 import handler from 'api/checkout'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { useState } from 'react'
 
 const items = productBundle.map((item) => {
   return {
@@ -10,8 +11,8 @@ const items = productBundle.map((item) => {
     product_id: item.product_id,
     variant_id: item.variant_id,
     quantity: 1,
-    charge_interval_frequency: 24,
-    order_interval_frequency: 24,
+    charge_interval_frequency: item.default_interval,
+    order_interval_frequency: item.default_interval,
     order_interval_unit: 'day',
     fulfillment_service: 'manual',
     requires_shipping: true,
@@ -31,6 +32,9 @@ const Home = (): JSX.Element => {
       console.log(err)
     }
   }
+
+  const [bundle, setBundle] = useState(items)
+  console.log(bundle)
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
