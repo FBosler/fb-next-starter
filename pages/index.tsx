@@ -11,7 +11,7 @@ const cart = productBundle.map((item) => {
     title: item.title,
     product_id: item.product_id,
     variant_id: item.variant_id,
-    quantity: 1,
+    quantity: item.quantity,
     charge_interval_frequency: item.default_interval,
     order_interval_frequency: item.default_interval,
     order_interval_unit: 'day',
@@ -45,14 +45,22 @@ const Home = (): JSX.Element => {
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
+        <h1>current cart</h1>
+        {cart.map((item) => (
+          <p key={item.variant_id}>
+            {item.title} | {item.order_interval_frequency}
+          </p>
+        ))}
         <AtcButton price="110" addToCart={addToCart} />
         {productBundle.map((item) => (
           <FrequencySlider
             key={item.variant_id}
-            setBundle={setBundle}
             title={item.title}
             calculation_factor={item.calculation_factor}
             default_interval={item.default_interval}
+            variant_id={item.variant_id}
+            setBundle={setBundle}
+            bundle={bundle}
           />
         ))}
       </main>

@@ -6,7 +6,8 @@
     "price": 20,
     "default_interval": 24,
     "product_type": "laundry_detergent",
-    "calculation_factor": 40
+    "calculation_factor": 40,
+    "quantity": 1
   },
   {
     "title": "Vollwaschmittel",
@@ -16,6 +17,7 @@
     "price": 99.85,
     "default_interval": 24,
     "product_type": "laundry_detergent",
-    "calculation_factor": 40
+    "calculation_factor": 40,
+    "quantity": 1
   }
 ]

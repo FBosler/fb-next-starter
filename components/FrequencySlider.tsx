@@ -3,6 +3,7 @@ import { useState, FC, SetStateAction, Dispatch } from 'react'
 //Slider lib has a preventDefault bug on mobile known Bug with React 17
 import Slider from 'rc-slider'
 import type { Bundle } from 'types/types'
+import 'rc-slider/assets/index.css'
 
 const frequencyToSlider = (
   interval: number,
@@ -11,17 +12,29 @@ const frequencyToSlider = (
   return (calculation_factor / interval) * 7
 }
 
+const sliderToFrequency = (
+  sliderValue: number,
+  calculation_factor: number
+): number => {
+  return Math.floor(calculation_factor / sliderValue) * 7
+}
+
 type Props = {
   title: string
   calculation_factor: number
   default_interval: number
+  variant_id: string
   setBundle: Dispatch<SetStateAction<Bundle>>
+  bundle: Bundle
 }
 
 const FrequencyChooser: FC<Props> = ({
   title,
   calculation_factor,
   default_interval,
+  variant_id,
+  setBundle,
+  bundle,
 }) => {
   const sliderMax = 20
 
@@ -33,7 +46,18 @@ const FrequencyChooser: FC<Props> = ({
   const [sliderValue, setSliderValue] = useState(
     Math.min(sliderMax, Math.ceil(initialSliderValue))
   )
-  console.log(initialSliderValue)
+
+  const sliderChangeHandler = (value: number): void => {
+    setSliderValue(value)
+    const changedIdx = bundle.findIndex((el) => el.variant_id === variant_id)
+    const updatedBundle = [...bundle]
+    updatedBundle[changedIdx].order_interval_frequency = sliderToFrequency(
+      value,
+      calculation_factor
+    )
+    setBundle(updatedBundle)
+    console.log(bundle)
+  }
 
   return (
     <div className="mt-4">
@@ -49,7 +73,7 @@ const FrequencyChooser: FC<Props> = ({
         <div className="w-full">
           <Slider
             onChange={(value) => {
-              setSliderValue(value)
+              sliderChangeHandler(value)
             }}
             defaultValue={sliderValue}
             min={1}
