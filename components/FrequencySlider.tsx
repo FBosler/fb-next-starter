@@ -16,14 +16,14 @@ const sliderToFrequency = (
   sliderValue: number,
   calculation_factor: number
 ): number => {
-  return Math.floor(calculation_factor / sliderValue) * 7
+  return Math.floor((calculation_factor / sliderValue) * 7)
 }
 
 type Props = {
   title: string
   calculation_factor: number
   default_interval: number
-  variant_id: string
+  product_id: string
   setBundle: Dispatch<SetStateAction<Bundle>>
   bundle: Bundle
 }
@@ -32,7 +32,7 @@ const FrequencyChooser: FC<Props> = ({
   title,
   calculation_factor,
   default_interval,
-  variant_id,
+  product_id,
   setBundle,
   bundle,
 }) => {
@@ -49,7 +49,7 @@ const FrequencyChooser: FC<Props> = ({
 
   const sliderChangeHandler = (value: number): void => {
     setSliderValue(value)
-    const changedIdx = bundle.findIndex((el) => el.variant_id === variant_id)
+    const changedIdx = bundle.findIndex((el) => el.product_id === product_id)
     const updatedBundle = [...bundle]
     updatedBundle[changedIdx].order_interval_frequency = sliderToFrequency(
       value,

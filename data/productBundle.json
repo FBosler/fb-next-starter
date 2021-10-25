@@ -2,7 +2,11 @@
   {
     "title": "Colorwaschmittel",
     "product_id": "6647804166333",
-    "variant_id": "38159873638593",
+    "variant_ids": {
+      "hard": "38159873638593",
+      "normal": "38159873638593",
+      "soft": "38159873638593"
+    },
     "price": 20,
     "default_interval": 24,
     "product_type": "laundry_detergent",
@@ -12,7 +16,11 @@
   {
     "title": "Vollwaschmittel",
     "product_id": "6647804166333",
-    "variant_id": "38149782175937",
+    "variant_ids": {
+      "hard": "38149782175937",
+      "normal": "38149782175937",
+      "soft": "38149782175937"
+    },
     "name": "Vollwaschmittel",
     "price": 99.85,
     "default_interval": 24,
