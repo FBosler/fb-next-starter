@@ -10,7 +10,7 @@ const cart = productBundle.map((item) => {
   return {
     title: item.title,
     product_id: item.product_id,
-    variant_id: item.variant_ids.hard,
+    variant_id: item.variant_ids.default,
     quantity: item.quantity,
     charge_interval_frequency: item.default_interval,
     order_interval_frequency: item.default_interval,
@@ -47,7 +47,7 @@ const Home = (): JSX.Element => {
       <main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center">
         <h1>current cart</h1>
         {cart.map((item) => (
-          <p key={item.variant_id}>
+          <p key={item.product_id}>
             {item.title} | {item.order_interval_frequency}
           </p>
         ))}

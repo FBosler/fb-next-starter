@@ -3,7 +3,7 @@
     "title": "Colorwaschmittel",
     "product_id": "6647804166333",
     "variant_ids": {
-      "hard": "38159873638593",
+      "default": "38159873638593",
       "normal": "38159873638593",
       "soft": "38159873638593"
     },
@@ -17,7 +17,7 @@
     "title": "Vollwaschmittel",
     "product_id": "6647804166333",
     "variant_ids": {
-      "hard": "38149782175937",
+      "default": "38149782175937",
       "normal": "38149782175937",
       "soft": "38149782175937"
     },
