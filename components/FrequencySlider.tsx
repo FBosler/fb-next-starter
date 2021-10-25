@@ -56,7 +56,6 @@ const FrequencyChooser: FC<Props> = ({
       calculation_factor
     )
     setBundle(updatedBundle)
-    console.log(bundle)
   }
 
   return (
