@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 type Props = {
-  addToCart: () => Promise<void>
+  addToCart: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
   price: string
   style?: 'fixed' | 'static'
 }

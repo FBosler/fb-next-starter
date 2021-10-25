@@ -1,15 +1,31 @@
 import Head from 'next/head'
 import AtcButton from 'components/AtcButton'
 import productBundle from 'data/productBundle.json'
+import handler from 'api/checkout'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-const items = productBundle.map((item) => item.id) as string[]
+const items = productBundle.map((item) => {
+  return {
+    title: item.title,
+    product_id: item.product_id,
+    variant_id: item.variant_id,
+    quantity: 1,
+    charge_interval_frequency: 24,
+    order_interval_frequency: 24,
+    order_interval_unit: 'day',
+    fulfillment_service: 'manual',
+    requires_shipping: true,
+    taxable: true,
+  }
+})
 
 const Home = (): JSX.Element => {
-  const addToCart = async (): Promise<void> => {
+  const addToCart = async (
+    req: NextApiRequest,
+    res: NextApiResponse
+  ): Promise<void> => {
     try {
-      console.log(items)
-
-      //await addItem(items)
+      await handler(req, res, items)
       //trackAddToCart()
     } catch (err) {
       console.log(err)
