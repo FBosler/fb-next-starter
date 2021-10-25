@@ -1,0 +1,119 @@
+@tailwind base;
+@import './base.css';
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
+  h6 {
+    font-size: 1.0rem;
+  }
+
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  table {
+    font-size: inherit;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  body,
+  p,
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  code,
+  form,
+  fieldset,
+  legend,
+  input,
+  button,
+  textarea,
+  blockquote,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  th,
+  dt,
+  b {
+    font-weight: bold;
+  }
+
+  ol,
+  ul,
+  dl {
+    /*bringing lists on to the page with breathing room */
+    margin-left: 2em;
+  }
+
+  u {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+
+  u:before {
+    content: '';
+    background: #ffff5a;
+    position: absolute;
+    bottom: 3px;
+    height: 7px;
+    width: 106%;
+    left: -3%;
+    z-index: -1;
+  }
+}
+
+/* disable increase & decrease on postalcode input */
+.postal-code::-webkit-outer-spin-button,
+.postal-code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.postal-code [type='number'] {
+  -moz-appearance: textfield;
+}
