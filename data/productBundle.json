@@ -21,7 +21,18 @@
       "normal": "38149782175937",
       "soft": "38149782175937"
     },
-    "name": "Vollwaschmittel",
+    "price": 99.85,
+    "default_interval": 24,
+    "product_type": "laundry_detergent",
+    "calculation_factor": 40,
+    "quantity": 1
+  },
+  {
+    "title": "Spülmittel",
+    "product_id": "6647804166333",
+    "variant_ids": {
+      "default": "38149782175937"
+    },
     "price": 99.85,
     "default_interval": 24,
     "product_type": "laundry_detergent",
