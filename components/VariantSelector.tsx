@@ -1,23 +1,29 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import cn from 'classnames'
 import { Cart } from 'types/types'
 
 type Props = {
   products: any
+  activeVariant: string
+  setActiveVariant: Dispatch<SetStateAction<string>>
   cart: Cart
   setCart: Dispatch<SetStateAction<Cart>>
 }
 
 const options = {
   hard: 'hart',
-  normal: 'mittelhart',
+  medium: 'mittelhart',
   soft: 'weich',
 }
 const optionsArr: string[] = Object.keys(options)
 
-const VariantSelector: FC<Props> = ({ products, cart, setCart }) => {
-  const [activeVariant, setActiveVariant] = useState('hard')
-
+const VariantSelector: FC<Props> = ({
+  products,
+  activeVariant,
+  setActiveVariant,
+  cart,
+  setCart,
+}) => {
   const variantHandler = (objKey: string): void => {
     setActiveVariant(objKey)
     const updatedCart = [...cart]
@@ -48,7 +54,7 @@ const VariantSelector: FC<Props> = ({ products, cart, setCart }) => {
           </a>
         ))}
       </div>
-      <div>selected:{activeVariant}</div>
+      <div>selected (shared state):{activeVariant}</div>
     </div>
   )
 }

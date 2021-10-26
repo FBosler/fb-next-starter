@@ -2,6 +2,7 @@ import Head from 'next/head'
 import AtcButton from 'components/AtcButton'
 import FrequencySlider from 'components/FrequencySlider'
 import VariantSelector from 'components/VariantSelector'
+import WaterhardnessCalculator from 'components/WaterhardnessCalculator'
 import products from 'data/products.json'
 import handler from 'api/checkout'
 import { NextApiResponse } from 'next'
@@ -33,6 +34,7 @@ const Home = (res: NextApiResponse): JSX.Element => {
   }
 
   const [cart, setCart] = useState(productBundle)
+  const [activeVariant, setActiveVariant] = useState('hard')
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -61,8 +63,20 @@ const Home = (res: NextApiResponse): JSX.Element => {
             cart={cart}
           />
         ))}
-
-        <VariantSelector products={products} setCart={setCart} cart={cart} />
+        <WaterhardnessCalculator
+          products={products}
+          activeVariant={activeVariant}
+          setActiveVariant={setActiveVariant}
+          cart={cart}
+          setCart={setCart}
+        />
+        <VariantSelector
+          products={products}
+          activeVariant={activeVariant}
+          setActiveVariant={setActiveVariant}
+          cart={cart}
+          setCart={setCart}
+        />
       </main>
     </div>
   )
