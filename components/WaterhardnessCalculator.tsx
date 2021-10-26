@@ -66,7 +66,6 @@ const WaterhardnessCalculator: FC<Props> = ({
       postalCode.country
     )
     setActiveVariant(waterHardness)
-    console.log(waterHardness)
 
     const updatedCart = [...cart]
     updatedCart.forEach((cartItem, idx) =>
