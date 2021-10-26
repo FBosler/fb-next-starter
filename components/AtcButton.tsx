@@ -1,15 +1,16 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
 type Props = {
-  addToCart: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
+  addToCart: (res: NextApiResponse) => Promise<void>
   price: string
   style?: 'fixed' | 'static'
+  res: NextApiResponse
 }
 
-const AtcButton: FC<Props> = ({ addToCart, price, style = 'fixed' }) => {
+const AtcButton: FC<Props> = ({ addToCart, price, style = 'fixed', res }) => {
   return (
     <div
       className={cn(
@@ -20,8 +21,8 @@ const AtcButton: FC<Props> = ({ addToCart, price, style = 'fixed' }) => {
       <a
         aria-label="Add to Cart"
         type="button"
-        className="flex justify-between w-full p-4 cursor-pointer bg-yellow"
-        onClick={addToCart}
+        className="flex justify-between w-full p-4 cursor-p bg-yellow"
+        onClick={() => addToCart(res)}
       >
         <div>add_to_cart</div>
         <div>{price}</div>

@@ -1,11 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse,
-  items: any
-) => {
+const handler = async (res: NextApiResponse, items: any) => {
   const rechargeResponse = await fetch(
     'https://api.rechargeapps.com/checkouts',
     {

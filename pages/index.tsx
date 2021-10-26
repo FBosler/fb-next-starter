@@ -4,7 +4,7 @@ import FrequencySlider from 'components/FrequencySlider'
 import VariantSelector from 'components/VariantSelector'
 import products from 'data/products.json'
 import handler from 'api/checkout'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 import { useState } from 'react'
 
 const productBundle = products.map((item) => {
@@ -22,13 +22,10 @@ const productBundle = products.map((item) => {
   }
 })
 
-const Home = (): JSX.Element => {
-  const addToCart = async (
-    req: NextApiRequest,
-    res: NextApiResponse
-  ): Promise<void> => {
+const Home = (res: NextApiResponse): JSX.Element => {
+  const addToCart = async (res: NextApiResponse): Promise<void> => {
     try {
-      await handler(req, res, cart)
+      await handler(res, cart)
       //trackAddToCart()
     } catch (err) {
       console.log(err)
@@ -52,7 +49,7 @@ const Home = (): JSX.Element => {
             id: {item.variant_id}
           </p>
         ))}
-        <AtcButton price="110" addToCart={addToCart} />
+        <AtcButton price="110" addToCart={addToCart} res={res} />
         {products.map((item) => (
           <FrequencySlider
             key={item.product_id}
